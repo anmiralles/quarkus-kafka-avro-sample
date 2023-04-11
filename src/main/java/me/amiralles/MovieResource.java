@@ -1,7 +1,7 @@
-package me.escoffier;
+package me.amiralles;
 
-import me.escoffier.quarkus.MovieCreated;
-import me.escoffier.quarkus.MovieUpdated;
+import me.amiralles.quarkus.MovieCreated;
+import me.amiralles.quarkus.MovieUpdated;
 import org.apache.avro.generic.GenericRecord;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
@@ -26,16 +26,16 @@ public class MovieResource {
 
 
     @POST
-    @Path("/created")
-    public Response enqueueMovie(MovieCreated movie) {
+    @Path("/create")
+    public Response createMovie(MovieCreated movie) {
         LOGGER.infof("Sending movie %s to Kafka", movie.getTitle());
         emitter.send(movie);
         return Response.accepted().build();
     }
 
     @POST
-    @Path("/updated")
-    public Response enqueueMovie(MovieUpdated movie) {
+    @Path("/update")
+    public Response updateMovie(MovieUpdated movie) {
         LOGGER.infof("Sending movie %s to Kafka", movie.getTitle());
         emitter.send(movie);
         return Response.accepted().build();

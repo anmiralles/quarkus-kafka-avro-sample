@@ -1,7 +1,7 @@
 {
-  "namespace": "me.escoffier.quarkus",
+  "namespace": "me.amiralles.quarkus",
   "type": "record",
-  "name": "Movie",
+  "name": "MovieUpdated",
   "fields": [
     {
       "name": "title",

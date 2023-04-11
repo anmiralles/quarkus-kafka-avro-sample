@@ -1,4 +1,4 @@
-package me.escoffier;
+package me.amiralles;
 
 import org.apache.avro.generic.GenericRecord;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
