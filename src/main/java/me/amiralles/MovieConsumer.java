@@ -1,6 +1,6 @@
 package me.escoffier;
 
-import me.escoffier.quarkus.Movie;
+import org.apache.avro.generic.GenericRecord;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 import org.jboss.logging.Logger;
 
@@ -12,8 +12,9 @@ public class MovieConsumer {
     private static final Logger LOGGER = Logger.getLogger("MovieConsumer");
 
     @Incoming("movies-from-kafka")
-    public void receive(Movie movie) {
-        LOGGER.infof("Received movie: %s (%d)", movie.getTitle(), movie.getYear());
+    public void receive(GenericRecord movie) {
+        String name = movie.getSchema().getFullName();
+        LOGGER.infof("Received movie: %s", name);
     }
 
 }
