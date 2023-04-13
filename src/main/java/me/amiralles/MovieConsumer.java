@@ -20,6 +20,8 @@ public class MovieConsumer {
             handle((MovieCreated) movie);
         } else if(movie instanceof MovieUpdated) {
             handle((MovieUpdated) movie);
+        } else {
+            LOGGER.error("Event type not recognized");
         }
     }
 
